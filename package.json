@@ -1,0 +1,37 @@
+{
+  "name": "customapi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/aidenwallis/customapi.git",
+  "author": "Aiden Wallis <aiden@aidenwallis.co.uk>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start": "nodemon --exec babel-node src/index.js",
+    "test-api-v1": "node_modules/mocha/bin/mocha --recursive test/api/v1",
+    "test": "yarn build && yarn test-api-v1"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "connect-redis": "^3.4.0",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.4.1",
+    "pino": "^5.10.5",
+    "pino-pretty": "^2.5.0",
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.9"
+  }
+}
