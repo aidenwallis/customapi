@@ -1,6 +1,6 @@
 import * as cacheService from './cache';
 import * as logger from '../../../util/logger';
-import externalEmoteClient from '../clients/external-emote';
+import genericApiClient from '../clients/generic-api';
 import ExternalApiError from '../errors/external-api';
 
 function handleEmoteError(err) {
@@ -12,7 +12,7 @@ function handleEmoteError(err) {
 
 function fetchTwitchEmotes() {
     logger.info('Fetching latest emotes from Twitchemotes.com');
-    externalEmoteClient.get('https://twitchemotes.com/api_cache/v3/subscriber.json')
+    genericApiClient.get('https://twitchemotes.com/api_cache/v3/subscriber.json')
         .then((res) => {
             cacheService.set('twitch-emotes:lastRequest', new Date(), false);
             let count = 0;
@@ -48,13 +48,13 @@ async function startEmotePolling() {
 startEmotePolling();
 
 export function getBTTVEmotes(channel) {
-    return externalEmoteClient.get(`https://api.betterttv.net/2/channels/${channel}`)
+    return genericApiClient.get(`https://api.betterttv.net/2/channels/${channel}`)
         .then((res) => res.data.emotes)
         .catch((err) => handleEmoteError(err));
 }
 
 export function getFFZEmotes(channel) {
-    return externalEmoteClient.get(`https://api.frankerfacez.com/v1/room/${channel}`)
+    return genericApiClient.get(`https://api.frankerfacez.com/v1/room/${channel}`)
         .then((res) => res.data.sets[res.data.room.set])
         .catch((err) => handleEmoteError(err));
 }

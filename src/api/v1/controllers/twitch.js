@@ -1,5 +1,6 @@
 import formatDate from '../util/format-date';
 import ExternalApiError from '../errors/external-api';
+import * as steamApiService from '../services/steam-api';
 import * as twitchApiService from '../services/twitch-api';
 
 export function uptime(req, res) {
@@ -30,8 +31,15 @@ export function game(req, res) {
             if (!channel) {
                 throw new ExternalApiError('Channel not found', 404, true);
             }
-            return res.send(channel.game);
+            return channel.game;
         })
+        .then((game) => {
+            if (!req.query.steamGame) {
+                return game;
+            }
+            return steamApiService.transformGame(game);
+        })
+        .then((game) => res.send(game))
         .catch((err) => res.handleError(err));
 }
 

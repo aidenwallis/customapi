@@ -61,7 +61,7 @@ export function compileResponse(video, query) {
     if (!query.idOnly) {
         text += 'https://';
         text += query.longUrl ? 'youtube.com/watch?v=' : 'youtu.be/';
-        text += video.id.videoId;
     }
+    text += video.id.videoId;
     return text;
 }

@@ -1,3 +1,5 @@
+import * as weatherApiService from '../services/weather-api';
+
 const eightballResponses = [
     'It is certain.',
 	'It is decidedly so.',
@@ -28,4 +30,10 @@ export function eightball(req, res) {
 
 export function coinflip(req, res) {
 	return res.send(coinflipResponses[Math.floor(Math.random() * coinflipResponses.length)]);
+}
+
+export function weather(req, res) {
+    weatherApiService.getWeather(req.params.query)
+        .then((data) => res.send(data))
+        .catch((err) => console.log(err));
 }
