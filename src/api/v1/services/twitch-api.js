@@ -1,4 +1,3 @@
-import qs from 'querystring';
 import * as cacheService from './cache';
 import ExternalApiError from '../errors/external-api';
 import twitchApiClient from '../clients/twitch-api';
@@ -47,11 +46,11 @@ export async function getUser(query) {
     if (cacheRes) {
         return cacheRes;
     }
-    const res = await twitchApiClient.get('/helix/users', { params: query });
+    const res = await twitchApiClient.get('/helix/users', {params: query});
     if (res.status !== 200) {
         throw new ExternalApiError(`Invalid status code from Twitch API: ${res.status}`, res.status, true);
     }
-    const user = res.data.data[0];
+    const [user] = res.data.data;
     if (user) {
         cacheService.cache5m(cacheKey, user);
     }

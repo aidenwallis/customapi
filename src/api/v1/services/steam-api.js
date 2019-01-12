@@ -20,7 +20,7 @@ function fetchSteamGames() {
             logger.error('Failed to fetch games from Steam API.');
             logger.error(err);
             setTimeout(() => fetchSteamGames(), 60 * 1000);
-        })
+        });
 }
 
 async function startSteamPolling() {
@@ -54,5 +54,5 @@ export function transformGame(game) {
                 return `${game} - https://store.steampowered.com/app/${res}`;
             }
             return game;
-        })
+        });
 }

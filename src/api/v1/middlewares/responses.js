@@ -10,5 +10,9 @@ export default function responsesMiddleware(req, res, next) {
         }
         return res.status(err.code || 500).send('An unknown error occurred');
     };
+
+    // Set Content-Type: text/plain header
+    res.type('text/plain');
+
     next();
 }

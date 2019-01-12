@@ -1,8 +1,0 @@
-{
-    "apps": [{
-        "autorestart": true,
-        "name": "customapi",
-        "script": "./dist/index.js",
-        "max_memory_restart": "250M"
-    }]
-}

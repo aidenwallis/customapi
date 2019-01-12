@@ -16,7 +16,7 @@ function fetchTwitchEmotes() {
         .then((res) => {
             cacheService.set('twitch-emotes:lastRequest', new Date(), false);
             let count = 0;
-            for (let channelID in res.data) {
+            for (const channelID in res.data) {
                 const channel = res.data[channelID];
                 count++;
                 cacheService.cache45m(`twitch-emotes:channel-name:${channel.channel_name}`, channel.emotes.map((e) => e.code));

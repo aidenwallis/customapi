@@ -10,7 +10,7 @@ app.use('/api/v1', apiVersion1);
 app.use('/api/modules/auth', authModule);
 
 const port = process.env.PORT || 8881;
-const server = app.listen(port, () => {
+const server = app.listen(port, '0.0.0.0', () => {
     logger.info(`Express listening on port ${port}`);
 });
 

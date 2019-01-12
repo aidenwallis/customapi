@@ -21,7 +21,7 @@ function dateDiff(from, to) {
 
     const secs = Math.floor((((diff % (60 * 60 * 1000 * 24)) % (60 * 60 * 1000)) % (60 * 1000)) / 1000 * 1);
     if (secs && secs > 0) {
-        returnArr.push(`${secs < 10 ? '0' : ''}${secs}s`)
+        returnArr.push(`${secs < 10 ? '0' : ''}${secs}s`);
     }
 
     if (returnArr.length === 0) {

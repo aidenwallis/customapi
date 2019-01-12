@@ -6,6 +6,7 @@
   "author": "Aiden Wallis <aiden@aidenwallis.co.uk>",
   "license": "MIT",
   "scripts": {
+    "lint": "eslint src/*.js",
     "build": "babel src --out-dir dist",
     "start": "nodemon --exec babel-node src/index.js",
     "test-api-v1": "node_modules/mocha/bin/mocha --recursive test/api/v1",
@@ -29,9 +30,15 @@
     "redis": "^2.8.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
+    "eslint": "^5.12.0",
+    "eslint-config-google": "^0.11.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.9"
+  },
+  "nodemonConfig": {
+    "delay": "200"
   }
 }

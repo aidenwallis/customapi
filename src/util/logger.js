@@ -10,8 +10,8 @@ const logger = pino({
 });
 
 if (process.env.loglevel) {
-  logger.level = process.env.loglevel;
-  logger.info('Setting loglevel to', logger.level);
+    logger.level = process.env.loglevel;
+    logger.info('Setting loglevel to', logger.level);
 }
 
 export function info(...args) {
@@ -30,4 +30,4 @@ export function warn(...args) {
     logger.warn(...args);
 }
 
-export default { info, error, debug, warn };
+export default {info, error, debug, warn};

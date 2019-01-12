@@ -1,10 +1,10 @@
 import * as youtubeApiService from '../services/youtube-api';
 
 export async function latest(req, res) {
-    let { name } = req.params;
+    let {name} = req.params;
     const cacheRes = await youtubeApiService.fetchVideoFromCache(name);
     if (cacheRes) {
-        return res.send(youtubeApiService.compileResponse(video, req.query));
+        return res.send(youtubeApiService.compileResponse(cacheRes, req.query));
     }
     try {
         if (name.length < 24) {

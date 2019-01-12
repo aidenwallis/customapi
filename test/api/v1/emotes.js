@@ -1,3 +1,4 @@
+/* eslint-disable */
 const { expect } = require('chai');
 
 const APITester = require('../../api-tester');

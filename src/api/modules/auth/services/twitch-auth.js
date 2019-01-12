@@ -3,11 +3,10 @@ import crypto from 'crypto';
 import qs from 'querystring';
 import config from '../../../../../config.json';
 
-import * as twitchApiService from './twitch-api';
+// import * as twitchApiService from './twitch-api';
 
 export const scopes = [
     'user_read',
-    // 'channel_editor',
     'channel_subscriptions',
     'channel_check_subscription',
 ];
@@ -40,5 +39,6 @@ export async function authenticateUser(code, scope) {
     if (!_.isEqual(rawscopeArr, scopes)) {
         throw new Error('Incorrect scopes.');
     }
-    const tokenPayload = await twitchApiService.fetchTokenPayload(code);
+    // TODO: Twitch authentication
+    // const tokenPayload = await twitchApiService.fetchTokenPayload(code);
 }

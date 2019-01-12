@@ -1,0 +1,23 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["eslint:recommended", "google"],
+  "rules": {
+    "indent": ["warn", 4],
+    "max-len": [1, 140, 2, { "ignoreComments": true }],
+    "no-underscore-dangle": "warn",
+    "class-methods-use-this": "error",
+    "no-restricted-globals": "off",
+    "no-console": "error",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "prefer-destructuring": "warn",
+    "require-jsdoc": "off",
+    "new-cap": "off",
+    "guard-for-in": "off"
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  }
+}

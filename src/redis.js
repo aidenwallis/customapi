@@ -5,7 +5,7 @@ import config from '../config.json';
 const cacheNS = 'customapi.cache.';
 
 export function newClient() {
-    const c = redis.createClient(config.redis);
+    const c = redis.createClient({host: config.redis, port: 6379});
     bluebird.promisifyAll(c);
     return c;
 }
@@ -27,4 +27,4 @@ export function setWithExpiry(key, value, expiry, json = true) {
     return client.set(cacheNS + key, json ? JSON.stringify(value) : value, 'EX', expiry);
 }
 
-export default { get, set, setWithExpiry, client };
+export default {get, set, setWithExpiry, client};

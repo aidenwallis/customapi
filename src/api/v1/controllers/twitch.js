@@ -44,7 +44,7 @@ export function game(req, res) {
 }
 
 export function toID(req, res) {
-    twitchApiService.getUser({ login: req.params.name })
+    twitchApiService.getUser({login: req.params.name})
         .then((user) => {
             if (!user) {
                 throw new ExternalApiError('User not found', 404, true);
@@ -55,7 +55,7 @@ export function toID(req, res) {
 }
 
 export function toName(req, res) {
-    twitchApiService.getUser({ id: req.params.id })
+    twitchApiService.getUser({id: req.params.id})
         .then((user) => {
             if (!user) {
                 throw new ExternalApiError('User not found', 404, true);
@@ -67,7 +67,7 @@ export function toName(req, res) {
 
 export async function botStatus(req, res) {
     try {
-        const user = await twitchApiService.getUser({ login: req.params.name });
+        const user = await twitchApiService.getUser({login: req.params.name});
         if (!user) {
             throw new ExternalApiError('User not found', 404, true);
         }

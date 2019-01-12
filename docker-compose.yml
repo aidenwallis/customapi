@@ -1,0 +1,33 @@
+version: '2'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8881:8881"
+    depends_on:
+      - mongo
+      - redis
+    links:
+      - redis
+      - mongo
+    volumes:
+      - .:/app
+  mongo:
+    image: mongo:4.0.5
+    ports:
+      - "27170:27017"
+    volumes:
+      - mongo_data:/data/db
+  redis:
+    image: redis:5.0.3-alpine
+    ports:
+      - "6370:6379"
+volumes:
+  mongo_data: {}
+
+networks:
+  default:
+    external:
+      name: aidenwallis_customapi

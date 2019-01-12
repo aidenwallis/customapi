@@ -1,0 +1,8 @@
+FROM node:10.14.1
+WORKDIR /app
+EXPOSE 8881
+COPY package.json yarn.lock ./
+COPY . .
+RUN yarn
+VOLUME ["/app"]
+CMD ["yarn", "start"]

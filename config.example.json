@@ -1,6 +1,13 @@
 {
     "twitch": {
-        "clientId": ""
+        "clientId": "",
+        "clientSecret": "",
+        "redirect": "http://localhost:8881/api/modules/auth/twitch/callback"
     },
-    "fortniteTrackerKey": ""
+    "mongodb": "mongodb://mongo/customapi",
+    "redis": "redis",
+    "fortniteTrackerKey": "",
+    "sessionSecret": "dev",
+    "youtubeApiKey": "",
+    "openweatherApiKey": ""
 }

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import * as cacheService from './cache';
 import fortniteApiClient from '../clients/fortnite';
-import ExternalApiError from '../errors/external-api';
 
 export function getCurrentWins(payload) {
     return payload.stats.curr_p2.top1.valueInt + payload.stats.curr_p10.top1.valueInt + payload.stats.curr_p9.top1.valueInt;

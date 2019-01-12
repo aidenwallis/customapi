@@ -38,7 +38,7 @@ export async function fetchLatestVideo(channelID) {
             type: 'video',
             part: 'snippet',
             fields: 'items/snippet/title,items/id/videoId',
-        },  
+        },
     });
     if (!res.data.items[0]) {
         return null;
