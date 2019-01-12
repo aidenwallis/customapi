@@ -1,5 +1,7 @@
 # AidenWallis' customapi resource
 
+- [Documentation repo](https://github.com/aidenwallis/customapi-docs)
+
 A collection of useful customapi endpoints to make more interesting chat commands. Written in NodeJS, runs in Docker, with mongodb and redis.
 
 I am working on writing more tests in the future, we only have a few basic ones right now.
