@@ -10,7 +10,7 @@ export default function responsesMiddleware(req, res, next) {
     };
 
     // Set Content-Type: text/plain header
-    res.type('Content-Type', 'text/plain');
+    res.set('Content-Type', 'text/plain');
 
     next();
 }
