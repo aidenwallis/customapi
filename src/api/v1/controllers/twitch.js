@@ -84,3 +84,17 @@ export async function botStatus(req, res) {
         res.handleError(err);
     }
 }
+
+export function subage(req, res) {
+    twitchApiService.fetchSubage(req.params.channel, req.params.user)
+        .then((data) => {
+            const channelName = data.user.display_name.toLowerCase() === data.user.name ? data.user.display_name : data.user.login;
+            const duration = formatDate(data.created_at);
+            return res.send(`${req.params.user} has been subbed to ${channelName} for ${duration}`);
+        })
+        .catch((err) => res.handleError(err));
+}
+
+export function followage(req, res) {
+
+}

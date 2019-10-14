@@ -1,5 +1,3 @@
-import logger from '../../../util/logger';
-
 export default function responsesMiddleware(req, res, next) {
     res.handleError = (err) => {
         if (!err) {
@@ -12,7 +10,7 @@ export default function responsesMiddleware(req, res, next) {
     };
 
     // Set Content-Type: text/plain header
-    res.type('text/plain');
+    res.type('Content-Type', 'text/plain');
 
     next();
 }

@@ -4,7 +4,7 @@
   "rules": {
     "indent": ["warn", 4],
     "max-len": [1, 140, 2, { "ignoreComments": true }],
-    "no-underscore-dangle": "warn",
+    "no-underscore-dangle": "off",
     "class-methods-use-this": "error",
     "no-restricted-globals": "off",
     "no-console": "error",
